@@ -1,3 +1,4 @@
+@import 'variables';
 @import 'normalize';
 @import 'layout';
 
@@ -10,16 +11,25 @@ a{
   color: inherit;
 }
 
+
+
+@mixin gradient($fromColor,$toColor) {
+  background: -webkit-gradient(linear,left bottom,left top,from($fromColor),to($toColor));
+  background: linear-gradient(0deg,$fromColor 0,$toColor 100%);
+}
+
 /**
 Header
 */
 .main-header{
+  z-index: 999;
   background-color: rgba(#000, .7);
   position: fixed;
   top: 0;
   left: 0;
   right: 0;
-
+  text-transform: uppercase;
+  
   .container{
     display: flex;
     justify-content: space-between;
@@ -41,7 +51,30 @@ Header
   &__logo{
     color: #FFF;
     font-weight: bold;
-    text-transform: uppercase;
+  }
+}
+/**
+  Header Section
+*/
+.header-section{
+  position: relative;
+  overflow: hidden;
+  padding-top: calc(7rem + #{$header-nav-height});
+  padding-bottom: 7rem;
+  @include gradient($some-orange, $some-pink);
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-attachment: scroll;
+  background-size: cover;
+  display: flex;
+  color:white;
+  &__container {
+    align-content: center;
+    margin-left: auto;
+    margin-right: auto;
+    h1{
+      margin-top: 0px;
+    }
   }
 }
 
