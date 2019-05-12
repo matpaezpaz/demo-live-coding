@@ -1,6 +1,7 @@
 @import 'variables';
 @import 'normalize';
 @import 'layout';
+@import 'background';
 
 body{
   font-family: 'Muli', sans-serif;
@@ -13,11 +14,6 @@ a{
 
 
 
-@mixin gradient($fromColor,$toColor) {
-  background: -webkit-gradient(linear,left bottom,left top,from($fromColor),to($toColor));
-  background: linear-gradient(0deg,$fromColor 0,$toColor 100%);
-}
-
 /**
 Header
 */
@@ -29,22 +25,25 @@ Header
   left: 0;
   right: 0;
   text-transform: uppercase;
-  
   .container{
     display: flex;
     justify-content: space-between;
     align-items: center;
   }
-
+  
   &__nav{
     ul{
       display: flex;
       list-style: none;
     }
     a{
-      color: #FFF;
+      color: $nav-link-secondary;
       font-weight: bold;
       padding: 1em;
+      transition: .2s;
+    }
+    a:hover{
+      color: $nav-link-active;
     }
   }
 
@@ -57,18 +56,11 @@ Header
   Header Section
 */
 .header-section{
-  position: relative;
-  overflow: hidden;
-  padding-top: calc(7rem + #{$header-nav-height});
-  padding-bottom: 7rem;
-  @include gradient($some-orange, $some-pink);
-  background-repeat: no-repeat;
-  background-position: center center;
-  background-attachment: scroll;
-  background-size: cover;
+  @include header-background();
   display: flex;
   color:white;
   &__container {
+    z-index: ($background-z-index+2); 
     align-content: center;
     margin-left: auto;
     margin-right: auto;
@@ -88,6 +80,10 @@ Header
       background-color: $some-pink;
       padding: 24px 48px;
       text-transform: uppercase;
+      transition: .3s;
+    }
+    a:hover{
+      background-color: $some-pink-darker;
     }
   }
 }
@@ -96,14 +92,20 @@ Header
 Articles
 */
 .main-articles{
-  article{
+  .article{
     display: flex;
     align-items: center;
-
-    h1{
-      font-size: 3rem;
+    &__details{
+      $margin: 8px;
+      h1{
+        font-size: 3rem;
+        font-weight: 800;
+        margin: 0px 0px $margin;
+      }
+      p {
+        margin: 0px 0px ($margin*2);
+      }
     }
-
     figure{
       max-width: 50%;
       & > img{
@@ -115,5 +117,17 @@ Articles
     &:nth-child(even){
       flex-direction: row-reverse;
     }
+  }
+}
+/** Footer
+*/
+footer{
+  bottom: 0px;
+  padding: 50px;
+  background-color: $footer-background-color;
+  color: $footer-color;
+  .container {
+    text-align: center;
+    font-size: 12.8px;
   }
 }

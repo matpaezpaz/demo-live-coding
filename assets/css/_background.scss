@@ -1,0 +1,41 @@
+
+
+
+@mixin gradient($fromColor,$toColor) {
+    background: -webkit-gradient(linear,left bottom,left top,from($fromColor),to($toColor));
+    background: linear-gradient(0deg,$fromColor 0,$toColor 100%);
+  }
+@mixin header-background {
+    position: relative;
+    overflow: hidden;
+    padding-top: calc(7rem + #{$header-nav-height});
+    padding-bottom: 7rem;
+    @include gradient($some-orange, $some-pink);
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-attachment: scroll;
+    background-size: cover;
+    z-index: $background-z-index;
+}
+@mixin dimensions($size) {
+    height: $size;
+    width: $size;
+}
+.bg-circle {
+    z-index: ($background-z-index+1);
+    position: absolute;
+    border-radius: 100%;
+    @include gradient($some-pink, $some-orange);
+}
+$circles :
+    1 90rem bottom -55rem left -55rem,
+    2 50rem top -25rem right -25rem,
+    3 20rem bottom -10rem right 5%,
+    4 30rem top -5rem right 35%;
+@each $number, $size, $v-axis, $v-value, $h-axis, $h-value in $circles {
+    .bg-circle-#{$number}{
+        @include dimensions($size);
+        #{$v-axis}: $v-value;
+        #{$h-axis}: $h-value;
+    }
+}

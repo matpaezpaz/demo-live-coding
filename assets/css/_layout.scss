@@ -1,10 +1,18 @@
-.container{
-  max-width: 1440px;
+.container {
+  width: 100%;
+  padding-right: 15px;
+  padding-left: 15px;
   margin-right: auto;
   margin-left: auto;
-  padding: 0 20px;
 }
 
+@each $name, $size in $breakpoints {
+  @media (min-width: #{$size}) {
+    .container {
+      max-width: #{$size};
+    }
+  }
+}
 .main-container{
   
 }

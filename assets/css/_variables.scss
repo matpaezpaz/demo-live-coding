@@ -1,0 +1,34 @@
+$header-nav-height: 50px;
+$some-orange : #ff6a00;
+$some-pink : #ee0979;
+$some-pink-darker : #bd0760;
+$footer-background-color : #000;
+$footer-color : #fff;
+$nav-link-secondary : rgba(255,255,255,.5);
+$nav-link-active : rgba(255,255,255,.8);
+
+$background-z-index: 50;
+
+
+$breakpoint-xs: 0px;
+$breakpoint-sm: 576px;
+$breakpoint-md: 768px;
+$breakpoint-lg: 992px;
+$breakpoint-xl: 1200px;
+
+$breakpoints: (
+  sm: 576px,
+  md: 768px,
+  lg: 992px,
+  xl: 1200px
+);
+$container-max-width-sm: 540px;
+$container-max-width-md: 720px;
+$container-max-width-lg: 960px;
+$container-max-width-xl: 1140px;
+$container-max-widths: (
+  sm: 540px,
+  md: 720px,
+  lg: 960px,
+  xl: 1140px
+) !default;

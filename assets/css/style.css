@@ -338,10 +338,67 @@ template {
 }
 
 .container {
-  max-width: 1440px;
+  width: 100%;
+  padding-right: 15px;
+  padding-left: 15px;
   margin-right: auto;
   margin-left: auto;
-  padding: 0 20px;
+}
+
+@media (min-width: 576px) {
+  .container {
+    max-width: 576px;
+  }
+}
+@media (min-width: 768px) {
+  .container {
+    max-width: 768px;
+  }
+}
+@media (min-width: 992px) {
+  .container {
+    max-width: 992px;
+  }
+}
+@media (min-width: 1200px) {
+  .container {
+    max-width: 1200px;
+  }
+}
+.bg-circle {
+  z-index: 51;
+  position: absolute;
+  border-radius: 100%;
+  background: -webkit-gradient(linear, left bottom, left top, from(#ee0979), to(#ff6a00));
+  background: linear-gradient(0deg, #ee0979 0, #ff6a00 100%);
+}
+
+.bg-circle-1 {
+  height: 90rem;
+  width: 90rem;
+  bottom: -55rem;
+  left: -55rem;
+}
+
+.bg-circle-2 {
+  height: 50rem;
+  width: 50rem;
+  top: -25rem;
+  right: -25rem;
+}
+
+.bg-circle-3 {
+  height: 20rem;
+  width: 20rem;
+  bottom: -10rem;
+  right: 5%;
+}
+
+.bg-circle-4 {
+  height: 30rem;
+  width: 30rem;
+  top: -5rem;
+  right: 35%;
 }
 
 body {
@@ -375,9 +432,13 @@ Header
   list-style: none;
 }
 .main-header__nav a {
-  color: #FFF;
+  color: rgba(255, 255, 255, 0.5);
   font-weight: bold;
   padding: 1em;
+  transition: 0.2s;
+}
+.main-header__nav a:hover {
+  color: rgba(255, 255, 255, 0.8);
 }
 .main-header__logo {
   color: #FFF;
@@ -398,10 +459,12 @@ Header
   background-position: center center;
   background-attachment: scroll;
   background-size: cover;
+  z-index: 50;
   display: flex;
   color: white;
 }
 .header-section__container {
+  z-index: 52;
   align-content: center;
   margin-left: auto;
   margin-right: auto;
@@ -422,27 +485,49 @@ Header
   background-color: #ee0979;
   padding: 24px 48px;
   text-transform: uppercase;
+  transition: 0.3s;
+}
+.header-section__container a:hover {
+  background-color: #bd0760;
 }
 
 /**
 Articles
 */
-.main-articles article {
+.main-articles .article {
   display: flex;
   align-items: center;
 }
-.main-articles article h1 {
+.main-articles .article__details h1 {
   font-size: 3rem;
+  font-weight: 800;
+  margin: 0px 0px 8px;
 }
-.main-articles article figure {
+.main-articles .article__details p {
+  margin: 0px 0px 16px;
+}
+.main-articles .article figure {
   max-width: 50%;
 }
-.main-articles article figure > img {
+.main-articles .article figure > img {
   border-radius: 100%;
   max-height: 400px;
 }
-.main-articles article:nth-child(even) {
+.main-articles .article:nth-child(even) {
   flex-direction: row-reverse;
+}
+
+/** Footer
+*/
+footer {
+  bottom: 0px;
+  padding: 50px;
+  background-color: #000;
+  color: #fff;
+}
+footer .container {
+  text-align: center;
+  font-size: 12.8px;
 }
 
 /*# sourceMappingURL=style.css.map */
