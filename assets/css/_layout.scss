@@ -5,8 +5,12 @@
   margin-right: auto;
   margin-left: auto;
 }
+.main-header .container {
+  display: flex;
+  flex-wrap: wrap;
+}
 
-@each $name, $size in $breakpoints {
+@each $name, $size in $container-max-widths {
   @media (min-width: #{$size}) {
     .container {
       max-width: #{$size};
