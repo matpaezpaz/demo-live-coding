@@ -451,8 +451,6 @@ Header
 .header-section {
   position: relative;
   overflow: hidden;
-  padding-top: calc(7rem + 50px);
-  padding-bottom: 7rem;
   background: -webkit-gradient(linear, left bottom, left top, from(#ff6a00), to(#ee0979));
   background: linear-gradient(0deg, #ff6a00 0, #ee0979 100%);
   background-repeat: no-repeat;
@@ -462,6 +460,18 @@ Header
   z-index: 50;
   display: flex;
   color: white;
+}
+@media (min-width: 0px) {
+  .header-section {
+    padding-top: calc(7rem + 50px);
+    padding-bottom: 7rem;
+  }
+}
+@media (min-width: 992px) {
+  .header-section {
+    padding-top: calc(10rem + 50px);
+    padding-bottom: 10rem;
+  }
 }
 .header-section__container {
   z-index: 52;
@@ -474,13 +484,22 @@ Header
 .header-section__container h1 {
   margin-top: 0px;
   margin-bottom: 0px;
-  font-size: 96px;
+  font-size: 4rem;
 }
 .header-section__container h2 {
   margin-top: 0px;
-  font-size: 64px;
+  font-size: 2rem;
+}
+@media (min-width: 992px) {
+  .header-section__container h1 {
+    font-size: 6rem;
+  }
+  .header-section__container h2 {
+    font-size: 4rem;
+  }
 }
 .header-section__container a {
+  margin-top: 3rem;
   border-radius: 999px;
   background-color: #ee0979;
   padding: 24px 48px;
@@ -496,7 +515,12 @@ Articles
 */
 .main-articles .article {
   display: flex;
+  flex-wrap: wrap;
   align-items: center;
+  justify-content: center;
+}
+.main-articles .article__details {
+  flex: 0 0 100%;
 }
 .main-articles .article__details h1 {
   font-size: 3rem;
@@ -506,15 +530,38 @@ Articles
 .main-articles .article__details p {
   margin: 0px 0px 16px;
 }
+@media (min-width: 992px) {
+  .main-articles .article__details {
+    flex: 0 0 50%;
+  }
+}
 .main-articles .article figure {
   max-width: 50%;
+  overflow: hidden;
+  border-radius: 999px;
 }
 .main-articles .article figure > img {
-  border-radius: 100%;
   max-height: 400px;
+  transition: 0.2s;
+}
+.main-articles .article figure > img:hover {
+  transform: scale(1.05);
+}
+@media (max-width: 992px) {
+  .main-articles .article figure {
+    order: -1;
+  }
+  .main-articles .article figure > img {
+    max-width: 100%;
+  }
 }
 .main-articles .article:nth-child(even) {
   flex-direction: row-reverse;
+}
+@media (max-width: 992px) {
+  .main-articles .article {
+    flex-direction: column;
+  }
 }
 
 /** Footer

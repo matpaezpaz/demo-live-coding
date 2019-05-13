@@ -4,12 +4,16 @@
 @mixin gradient($fromColor,$toColor) {
     background: -webkit-gradient(linear,left bottom,left top,from($fromColor),to($toColor));
     background: linear-gradient(0deg,$fromColor 0,$toColor 100%);
-  }
+}
 @mixin header-background {
     position: relative;
     overflow: hidden;
-    padding-top: calc(7rem + #{$header-nav-height});
-    padding-bottom: 7rem;
+    @each $breakpoint, $value in $padding-header-breakpoints {
+        @media (min-width: #{$breakpoint}) {
+            padding-top: calc(#{$value} + #{$header-nav-height});
+            padding-bottom: #{$value};
+        }
+    }
     @include gradient($some-orange, $some-pink);
     background-repeat: no-repeat;
     background-position: center center;
